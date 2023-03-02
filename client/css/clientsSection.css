@@ -1,0 +1,158 @@
+.clients {
+  padding-top: 135px;
+}
+
+.clients__heading {
+  margin: 0;
+  margin-bottom: 29px;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 33px;
+  color: #333333;
+}
+
+.clients__container {
+  display: flex;
+  flex-direction: column;
+}
+
+.display-info {
+  display: block;
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+
+.display-info__wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.display-info__item {
+  font-size: 12px;
+  color: var(--color-silver-chalice);
+}
+
+.display-info__item--id,
+.display-info__sorting {
+  text-transform: uppercase;
+  color: var(--color-heliotrope);
+}
+
+.display-info__item--id,
+.display-info__item--name,
+.display-info__item--create,
+.display-info__item--change {
+  cursor: pointer;
+  user-select: none;
+}
+
+.display-info__item--id {
+  padding-right: 12px;
+  margin-right: 57px;
+  background-position: right center;
+}
+
+.display-info__item--name {
+  padding-left: 48px;
+  background-position: right 19px center;
+}
+
+.display-info__sorting {
+  padding-left: 11px;
+  font-size: 10px;
+}
+
+.display-info__item--create {
+  padding-right: 70px;
+  padding-left: 200px;
+  position: relative;
+}
+
+.display-info__item--create::before {
+  content: 'Создания';
+  margin-right: 13px;
+  position: absolute;
+  right: 0;
+  top: 1px;
+}
+
+.display-info__item--change {
+  padding-right: 80px;
+  padding-left: 30px;
+  margin-right: 28px;
+}
+
+.display-info__item--change::before {
+  content: 'Изменения ';
+  margin-right: 13px;
+  position: absolute;
+  right: 0;
+  top: 1px;
+}
+
+.display-info__item--contacts {
+  padding-left: 30px;
+}
+
+.display-info__item--actions {
+  padding-left: 100px;
+}
+
+.clients__btn {
+  display: flex;
+  flex-direction: row-reverse;
+  padding: 12px 26px;
+  align-self: center;
+  font-size: 14px;
+  line-height: 19px;
+  border: 1px solid var(--color-heliotrope);
+  color: var(--color-heliotrope);
+  transition: color .3s ease-in-out, border .3s ease-in-out, background-color .3s ease-in-out;
+}
+
+.clients__btn svg {
+  margin-right: 10px;
+  transition: fill 0.3s ease-in-out;
+  fill: var(--color-heliotrope);
+}
+
+.clients__btn:hover svg {
+  fill: var(--color-white);
+}
+
+.clients__btn:hover {
+  border: 1px solid var(--color-heliotrope);
+  background-color: var(--color-melrose);
+  color: var(--color-white);
+}
+
+.create__span,
+.change__span {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-image: url('../img/arrow-down.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  display: inline-block;
+  width: 7px;
+  height: 100%;
+}
+
+.sort-up,
+.sort-down {
+  background-repeat: no-repeat;
+}
+
+.sort-up {
+  background-image: url('../img/arrow-up.svg');
+}
+
+.sort-down {
+  background-image: url('../img/arrow-down.svg');
+}
+
+.display-info__item--change,
+.display-info__item--create {
+  background-image: none;
+}

@@ -1,3 +1,5 @@
+import { deleteClientModal } from "./createDeleteModal.js";
+import { editClientModal } from "./editClient.js";
 import { createContactItemByType, formatDate, formatTime } from "./utils.js";
 
 export const createClientItem = (data) => {
@@ -17,6 +19,8 @@ export const createClientItem = (data) => {
   const clientActions = document.createElement('td');
   const clientEdit = document.createElement('button');
   const clientDelete = document.createElement('button');
+  const deleteClient = deleteClientModal()
+  const editClient = editClientModal(data)
 
 
   clientTr.classList.add('clients__item');
@@ -25,7 +29,7 @@ export const createClientItem = (data) => {
   clientFullName.classList.add('clients__full-name');
   clientName.classList.add('clients__name');
   clientSurname.classList.add('clients__surname');
-  clientLastName.classList.add('clients__lastname');
+  clientLastName.classList.add('clients__lastName');
   clientCreated.classList.add('clients__created');
   createDate.classList.add('created__date');
   createdTime.classList.add('created__time');
@@ -42,6 +46,24 @@ export const createClientItem = (data) => {
     createContactItemByType(contact.type, contact.value, clientContacts)
   }
 
+  const deleteById = () => {
+    import('./cleantsApi.js').then(({ deleteClientItem }) => {
+      deleteClient.deleteModalDelete.addEventListener('click', () => {
+        deleteClientItem(data.id)
+        document.getElementById(data.id).remove()
+      })
+    })
+  }
+
+  clientDelete.addEventListener('click', () => {
+    deleteById()
+    document.body.append(deleteClient.deleteModal)
+  })
+
+  clientEdit.addEventListener('click', () => {
+    document.body.append(editClient.editModal)
+  })
+
   clientId.textContent = data.id.substring(0, 6)
   clientName.textContent = data.name
   clientSurname.textContent = data.surname
@@ -55,7 +77,7 @@ export const createClientItem = (data) => {
   changedDate.textContent = formatDate(data.updatedAt)
   changedTime.textContent = formatTime(data.updatedAt)
 
-  clientFullName.append(clientName, clientSurname, clientLastName)
+  clientFullName.prepend(clientSurname, clientName, clientLastName)
   clientCreated.append(createDate, createdTime)
   clientChanged.append(changedDate, changedTime)
   clientActions.append(clientEdit, clientDelete)

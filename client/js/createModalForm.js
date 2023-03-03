@@ -1,3 +1,4 @@
+import { createContactItem } from "./createContact.js";
 import { svgContactDefault, svgContactHover } from "./svg.js";
 
 export const createClientsForm = () => {
@@ -82,6 +83,22 @@ export const createClientsForm = () => {
   )
 
   addContactBtn.append(contactBtnSvgDefault, contactBtnSvgHover)
+
+  addContactBtn.addEventListener('click', (e) => {
+    e.preventDefault()
+    const contactsItems = document.getElementsByClassName('contact')
+
+    if (contactsItems.length < 9) {
+      const contactItem = createContactItem()
+      contactsBlock.append(contactItem.contact)
+      contactsBlock.style.backgroundColor = '#E7E5EB'
+    } else {
+      contactItem = createContactItem()
+      contactsBlock.append(contactItem.contact)
+      addContactBtn.classList.remove('modal__btn-contact--active')
+    }
+  })
+
 
   return {
     form,

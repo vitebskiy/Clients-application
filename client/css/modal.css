@@ -128,7 +128,7 @@
   left: -5px;
   width: 16px;
   height: 16px;
-  fill: var(--color-heliotrope);
+  /* fill: var(--color-heliotrope); */
 }
 
 .btn-contact__svg--hover,

@@ -45,7 +45,7 @@
   background-color: #E7E5EB;
 }
 
-.contact__list--active .contact__name::before {
+.contact__list--active.contact__name::before {
   transform: rotate(-180deg);
 }
 
@@ -53,14 +53,14 @@
   z-index: 2;
   position: absolute;
   font-size: 12px;
-  padding: 10px 0 6px;
+  /* padding: 10px 0 6px; */
   width: 100%;
   max-width: 134px;
   min-width: 134px;
   top: 36px;
   left: 0;
-  /* opacity: 0;
-  visibility: hidden; */
+  opacity: 0;
+  visibility: hidden;
   background-color: #F4F3F6;
   border: 1px solid #C8C5D1;
   transition: opacity .3s ease-in-out, visibility .3s ease-in-out;
@@ -74,8 +74,7 @@
 
 .contact__item {
   cursor: pointer;
-  padding-top: 4px;
-  padding-bottom: 7px;
+  padding: 10px 0;
   padding-left: 12px;
   transition: background-color .3s ease-in-out;
 }
@@ -96,6 +95,7 @@
   background-color: transparent;
   border: 1px solid #C8C5D1;
   border-left: none;
+  border-right: none;
 }
 
 .contact__delete {

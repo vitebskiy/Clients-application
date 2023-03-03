@@ -92,8 +92,13 @@ export const createClientsForm = () => {
       const contactItem = createContactItem()
       contactsBlock.append(contactItem.contact)
       contactsBlock.style.backgroundColor = '#E7E5EB'
+      if (contactItem.length >= 5) {
+        document.querySelector('.modal__content').style.top = '70%'
+      } else {
+        document.querySelector('.modal__content').style.top = '50%'
+      }
     } else {
-      contactItem = createContactItem()
+      const contactItem = createContactItem()
       contactsBlock.append(contactItem.contact)
       addContactBtn.classList.remove('modal__btn-contact--active')
     }

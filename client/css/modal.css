@@ -173,3 +173,13 @@
   border-bottom: 1px solid var(--color-mine-shaft);
   color: var(--color-mine-shaft);
 }
+
+.modal__id {
+  display: inline-block;
+  margin-left: 10px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--color-silver-chalice);
+
+}

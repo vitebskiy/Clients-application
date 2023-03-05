@@ -1,6 +1,8 @@
+import { contactTooltip } from "./createTooltip.js";
 import { svgEmail, svgFb, svgOther, svgPhone, svgVk } from "./svg.js";
 
 export const createContactLink = (type, value, element, svg, item) => {
+  const setTooltip = contactTooltip(type, value)
   element = document.createElement('a')
   element.classList.add('contacts__link')
   element.innerHTML = svg;
@@ -9,10 +11,13 @@ export const createContactLink = (type, value, element, svg, item) => {
     element.href = `mailto:${value.trim()}`
   } else if (type == 'Телефон') {
     element.href = `tel:${value.trim()}`
+    setTooltip.tooltipValue.style.color = '#ffffff'
+    setTooltip.tooltipValue.style.textDecoration = 'none'
   } else {
     element.href = value.trim()
   }
 
+  element.append(setTooltip.tooltip)
   item.append(element)
 }
 

@@ -88,7 +88,7 @@ export const createClientsForm = () => {
     e.preventDefault()
     const contactsItems = document.getElementsByClassName('contact')
 
-    if (contactsItems.length < 9) {
+    if (contactsItems.length < 10) {
       const contactItem = createContactItem()
       contactsBlock.append(contactItem.contact)
       contactsBlock.style.backgroundColor = '#E7E5EB'
